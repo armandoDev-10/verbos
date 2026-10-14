@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100 Verbos Esenciales en Inglés - Nivel Intermedio</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+
+  body {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+  }
+
+
+  .container {
+    max-width: 1300px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+  }
+
+
+  header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 40px 30px;
+    text-align: center;
+  }
+
+
+  header h1 { font-size: 2.2rem; margin-bottom: 10px; letter-spacing: 1px; }
+  header p { font-size: 1.1rem; opacity: 0.95; }
+
+
+  .stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+  }
+
+
+  .stat {
+    background: rgba(255,255,255,0.2);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+  }
+
+
+  .controls {
+    padding: 25px 30px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+  .search-box { flex: 1; min-width: 250px; position: relative; }
+
+
+  .search-box input {
+    width: 100%;
+    padding: 12px 20px 12px 45px;
+    border: 2px solid #e0e0e0;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    outline: none;
+  }
+
+
+  .search-box input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+  }
+
+
+  .search-box::before {
+    content: "🔍";
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+  }
+
+
+  .filters { display: flex; gap: 10px; flex-wrap: wrap; }
+
+
+  .filter-btn {
+    padding: 10px 20px;
+    border: 2px solid #667eea;
+    background: #fff;
+    color: #667eea;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+  }
+
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: #667eea;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(102,126,234,0.4);
+  }
+
+
+  .voice-controls {
+    padding: 15px 30px;
+    background: #eef2ff;
+    border-bottom: 1px solid #dcdff0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+
+  .voice-controls label { font-weight: 600; color: #2a5298; }
+
+
+  .voice-controls select,
+  .voice-controls input[type="range"] {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #c5cae9;
+    background: #fff;
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+
+  .content { padding: 30px; }
+  .section { margin-bottom: 40px; }
+
+
+  .section-title {
+    font-size: 1.5rem;
+    color: #2a5298;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+
+  .section-title .badge {
+    background: #667eea;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+
+  /* ============ TABLA ============ */
+  .table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    min-width: 900px;
+  }
+
+
+  thead {
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+    color: #fff;
+  }
+
+
+  th {
+    padding: 14px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+
+  td {
+    padding: 12px 10px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.92rem;
+    vertical-align: middle;
+  }
+
+
+  tbody tr { transition: all 0.2s; }
+  tbody tr:hover { background: #f8f9ff; }
+  tbody tr:last-child td { border-bottom: none; }
+
+
+  .verb-en { font-weight: 700; color: #2a5298; font-size: 1rem; }
+  .verb-form { color: #764ba2; font-style: italic; font-weight: 600; white-space: nowrap; }
+  .verb-es { color: #444; }
+  .example { color: #666; font-size: 0.85rem; }
+  .speak-cell { white-space: nowrap; }
+
+
+  .speak-btn {
+    background: #eef2ff;
+    border: 1px solid #c5cae9;
+    color: #2a5298;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .speak-btn:hover {
+    background: #667eea;
+    color: #fff;
+    transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(102,126,234,0.4);
+  }
+
+
+  .speak-btn:active { transform: scale(0.95); }
+
+
+  .speak-btn.speaking {
+    background: #764ba2;
+    color: #fff;
+    animation: pulse 1s infinite;
+  }
+
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(118,75,162,0.7); }
+    50% { box-shadow: 0 0 0 10px rgba(118,75,162,0); }
+  }
+
+
+  .tag {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+
+  .tag.regular { background: #d4edda; color: #155724; }
+  .tag.irregular { background: #f8d7da; color: #721c24; }
+  .tag.auxiliary { background: #fff3cd; color: #856404; }
+
+
+  .no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #999;
+    font-size: 1.1rem;
+    display: none;
+  }
+
+
+  .back-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    box-shadow: 0 6px 20px rgba(102,126,234,0.5);
+    transition: all 0.3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+
+  .back-top.visible { opacity: 1; pointer-events: auto; }
+  .back-top:hover { transform: translateY(-5px) scale(1.1); }
+
+
+  footer {
+    background: #1e3c72;
+    color: #fff;
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+  }
+
+
+  /* ============ RESPONSIVE: TABLA → TARJETAS ============ */
+  @media (max-width: 900px) {
+    header { padding: 30px 20px; }
+    header h1 { font-size: 1.6rem; }
+    header p { font-size: 0.95rem; }
+    .controls, .voice-controls { padding: 15px 20px; }
+    .content { padding: 20px 15px; }
+    .section-title { font-size: 1.2rem; }
+
+
+    /* Ocultar el thead en móvil */
+    .table-wrapper { overflow: visible; box-shadow: none; border-radius: 0; }
+    table { min-width: 0; display: block; }
+    thead { display: none; }
+    tbody { display: block; }
+
+
+    /* Cada fila se convierte en una tarjeta */
+    tbody tr {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 8px 12px;
+      background: #fff;
+      border: 1px solid #e6e9f5;
+      border-left: 4px solid #667eea;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 10px rgba(30,60,114,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+
+    tbody tr:hover {
+      background: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(30,60,114,0.12);
+    }
+
+
+    /* Cada celda ocupa toda la fila, con label a la izquierda */
+    tbody td {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 4px 0;
+      border: none;
+      border-bottom: 1px dashed #eef0f7;
+      font-size: 0.9rem;
+      white-space: normal !important;
+    }
+
+
+    tbody td:last-child { border-bottom: none; }
+
+
+    /* Etiqueta generada desde data-label */
+    tbody td::before {
+      content: attr(data-label);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #8a93b8;
+      flex-shrink: 0;
+    }
+
+
+    /* Columna del botón 🔊: centrada y sin label */
+    tbody td.speak-cell {
+      grid-column: 1 / -1;
+      justify-content: flex-start;
+      border-bottom: 1px solid #e6e9f5;
+      padding-bottom: 10px;
+      margin-bottom: 4px;
+    }
+
+
+    tbody td.speak-cell::before { content: none; }
+
+
+    /* Primera celda (el verbo) más destacada */
+    tbody td.verb-en {
+      font-size: 1.15rem;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+
+
+    tbody td.verb-en::before { color: #667eea; }
+
+
+    /* La etiqueta de tipo queda a la derecha */
+    tbody td:last-child { justify-content: flex-start; gap: 10px; }
+  }
+
+
+  @media (max-width: 480px) {
+    body { padding: 10px; }
+    .container { border-radius: 12px; }
+    header h1 { font-size: 1.35rem; }
+    .stat { padding: 6px 14px; font-size: 0.78rem; }
+    .filters { width: 100%; }
+    .filter-btn { flex: 1; padding: 8px 10px; font-size: 0.8rem; }
+    .voice-controls { font-size: 0.82rem; }
+    tbody td { font-size: 0.85rem; }
+    tbody td::before { font-size: 0.68rem; }
+    tbody td.verb-en { font-size: 1.05rem; }
+  }
+</style>
+</head>
+<body>
+
+
+<div class="container">
+  <header>
+    <h1>📚 100 Verbos Esenciales en Inglés</h1>
+    <p>Nivel Intermedio · Con pronunciación 🔊 · Base, 3ª persona, Pasado y Participio</p>
+    <div class="stats">
+      <div class="stat">✅ 50 Regulares</div>
+      <div class="stat">🔶 30 Irregulares</div>
+      <div class="stat">⭐ 20 Auxiliares/Modales</div>
+    </div>
+  </header>
+
+
+  <div class="controls">
+    <div class="search-box">
+      <input type="text" id="search" placeholder="Buscar verbo en inglés o español...">
+    </div>
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="regular">Regulares</button>
+      <button class="filter-btn" data-filter="irregular">Irregulares</button>
+      <button class="filter-btn" data-filter="auxiliary">Auxiliares</button>
+    </div>
+  </div>
+
+
+  <div class="voice-controls">
+    <label for="voiceSelect">🗣️ Voz:</label>
+    <select id="voiceSelect"></select>
+
+
+    <label for="rateRange">⚡ Velocidad:</label>
+    <input type="range" id="rateRange" min="0.5" max="1.5" step="0.1" value="0.9">
+    <span id="rateValue">0.9x</span>
+
+
+    <button class="filter-btn" id="stopBtn" title="Detener voz">⏹️ Detener</button>
+  </div>
+
+
+  <div class="content">
+    <section class="section" data-type="regular">
+      <h2 class="section-title">✅ Verbos Regulares <span class="badge">50</span></h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>🔊</th>
+              <th>Base</th>
+              <th>3ª persona</th>
+              <th>Pasado</th>
+              <th>Participio</th>
+              <th>Español</th>
+              <th>Ejemplo</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody id="regular-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <section class="section" data-type="irregular">
+      <h2 class="section-title">🔶 Verbos Irregulares <span class="badge">30</span></h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>🔊</th>
+              <th>Base</th>
+              <th>3ª persona</th>
+              <th>Pasado</th>
+              <th>Participio</th>
+              <th>Español</th>
+              <th>Ejemplo</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody id="irregular-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <section class="section" data-type="auxiliary">
+      <h2 class="section-title">⭐ Verbos Auxiliares y Modales <span class="badge">20</span></h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>🔊</th>
+              <th>Base</th>
+              <th>3ª persona</th>
+              <th>Pasado</th>
+              <th>Participio</th>
+              <th>Español</th>
+              <th>Ejemplo</th>
+              <th>Tipo</th>
+            </tr>
+          </thead>
+          <tbody id="auxiliary-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <div class="no-results" id="no-results">
+      😕 No se encontraron verbos con esa búsqueda.
+    </div>
+  </div>
+
+
+  <footer>
+    <p></p>
+  </footer>
+</div>
+
+
+<button class="back-top" id="backTop" title="Volver arriba">↑</button>
+
+
+<script>
+// ===== DATOS =====
+const regularVerbs = [
+  { en: "work", third: "works", past: "worked", pp: "worked", es: "trabajar", ex: "I work every day." },
+  { en: "play", third: "plays", past: "played", pp: "played", es: "jugar / tocar", ex: "They play soccer." },
+  { en: "study", third: "studies", past: "studied", pp: "studied", es: "estudiar", ex: "She studies English." },
+  { en: "live", third: "lives", past: "lived", pp: "lived", es: "vivir", ex: "We live in Mexico." },
+  { en: "love", third: "loves", past: "loved", pp: "loved", es: "amar", ex: "I love my family." },
+  { en: "like", third: "likes", past: "liked", pp: "liked", es: "gustar", ex: "He likes pizza." },
+  { en: "want", third: "wants", past: "wanted", pp: "wanted", es: "querer", ex: "They want a car." },
+  { en: "need", third: "needs", past: "needed", pp: "needed", es: "necesitar", ex: "I need help." },
+  { en: "help", third: "helps", past: "helped", pp: "helped", es: "ayudar", ex: "She helps her mom." },
+  { en: "call", third: "calls", past: "called", pp: "called", es: "llamar", ex: "Call me later." },
+  { en: "ask", third: "asks", past: "asked", pp: "asked", es: "preguntar / pedir", ex: "Ask the teacher." },
+  { en: "answer", third: "answers", past: "answered", pp: "answered", es: "responder", ex: "Answer the phone." },
+  { en: "change", third: "changes", past: "changed", pp: "changed", es: "cambiar", ex: "They changed plans." },
+  { en: "move", third: "moves", past: "moved", pp: "moved", es: "mover / mudarse", ex: "We moved to Madrid." },
+  { en: "start", third: "starts", past: "started", pp: "started", es: "empezar", ex: "The class starts at 8." },
+  { en: "finish", third: "finishes", past: "finished", pp: "finished", es: "terminar", ex: "I finished my work." },
+  { en: "open", third: "opens", past: "opened", pp: "opened", es: "abrir", ex: "Open the door." },
+  { en: "close", third: "closes", past: "closed", pp: "closed", es: "cerrar", ex: "Close the window." },
+  { en: "walk", third: "walks", past: "walked", pp: "walked", es: "caminar", ex: "We walk in the park." },
+  { en: "watch", third: "watches", past: "watched", pp: "watched", es: "mirar / ver", ex: "I watch TV." },
+  { en: "listen", third: "listens", past: "listened", pp: "listened", es: "escuchar", ex: "Listen to music." },
+  { en: "talk", third: "talks", past: "talked", pp: "talked", es: "hablar", ex: "They talk a lot." },
+  { en: "travel", third: "travels", past: "traveled", pp: "traveled", es: "viajar", ex: "She travels often." },
+  { en: "visit", third: "visits", past: "visited", pp: "visited", es: "visitar", ex: "We visited Paris." },
+  { en: "arrive", third: "arrives", past: "arrived", pp: "arrived", es: "llegar", ex: "They arrived late." },
+  { en: "return", third: "returns", past: "returned", pp: "returned", es: "regresar", ex: "He returned home." },
+  { en: "learn", third: "learns", past: "learned", pp: "learned", es: "aprender", ex: "I learn fast." },
+  { en: "teach", third: "teaches", past: "taught", pp: "taught", es: "enseñar", ex: "She teaches math." },
+  { en: "remember", third: "remembers", past: "remembered", pp: "remembered", es: "recordar", ex: "Remember the rules." },
+  { en: "forget", third: "forgets", past: "forgot", pp: "forgotten", es: "olvidar", ex: "Don't forget your keys." },
+  { en: "decide", third: "decides", past: "decided", pp: "decided", es: "decidir", ex: "We decided to go." },
+  { en: "explain", third: "explains", past: "explained", pp: "explained", es: "explicar", ex: "Explain the lesson." },
+  { en: "describe", third: "describes", past: "described", pp: "described", es: "describir", ex: "Describe the picture." },
+  { en: "compare", third: "compares", past: "compared", pp: "compared", es: "comparar", ex: "Compare prices." },
+  { en: "prepare", third: "prepares", past: "prepared", pp: "prepared", es: "preparar", ex: "Prepare dinner." },
+  { en: "practice", third: "practices", past: "practiced", pp: "practiced", es: "practicar", ex: "Practice every day." },
+  { en: "improve", third: "improves", past: "improved", pp: "improved", es: "mejorar", ex: "Improve your English." },
+  { en: "develop", third: "develops", past: "developed", pp: "developed", es: "desarrollar", ex: "Develop new skills." },
+  { en: "create", third: "creates", past: "created", pp: "created", es: "crear", ex: "Create a project." },
+  { en: "organize", third: "organizes", past: "organized", pp: "organized", es: "organizar", ex: "Organize the event." },
+  { en: "manage", third: "manages", past: "managed", pp: "managed", es: "gestionar / lograr", ex: "Manage your time." },
+  { en: "provide", third: "provides", past: "provided", pp: "provided", es: "proporcionar", ex: "Provide information." },
+  { en: "consider", third: "considers", past: "considered", pp: "considered", es: "considerar", ex: "Consider the options." },
+  { en: "suggest", third: "suggests", past: "suggested", pp: "suggested", es: "sugerir", ex: "I suggest a break." },
+  { en: "recommend", third: "recommends", past: "recommended", pp: "recommended", es: "recomendar", ex: "Recommend a book." },
+  { en: "accept", third: "accepts", past: "accepted", pp: "accepted", es: "aceptar", ex: "Accept the offer." },
+  { en: "refuse", third: "refuses", past: "refused", pp: "refused", es: "rechazar", ex: "He refused to go." },
+  { en: "allow", third: "allows", past: "allowed", pp: "allowed", es: "permitir", ex: "Allow me to help." },
+  { en: "appear", third: "appears", past: "appeared", pp: "appeared", es: "aparecer", ex: "Stars appear at night." },
+  { en: "happen", third: "happens", past: "happened", pp: "happened", es: "suceder", ex: "What happened?" }
+];
+
+
+const irregularVerbs = [
+  { en: "be", third: "is / are", past: "was / were", pp: "been", es: "ser / estar", ex: "I am happy." },
+  { en: "have", third: "has", past: "had", pp: "had", es: "tener", ex: "She has a dog." },
+  { en: "do", third: "does", past: "did", pp: "done", es: "hacer", ex: "Do your homework." },
+  { en: "go", third: "goes", past: "went", pp: "gone", es: "ir", ex: "We go to school." },
+  { en: "say", third: "says", past: "said", pp: "said", es: "decir", ex: "He said hello." },
+  { en: "get", third: "gets", past: "got", pp: "gotten / got", es: "obtener / conseguir", ex: "Get a ticket." },
+  { en: "make", third: "makes", past: "made", pp: "made", es: "hacer / fabricar", ex: "Make a cake." },
+  { en: "know", third: "knows", past: "knew", pp: "known", es: "saber / conocer", ex: "I know the answer." },
+  { en: "think", third: "thinks", past: "thought", pp: "thought", es: "pensar", ex: "I think so." },
+  { en: "take", third: "takes", past: "took", pp: "taken", es: "tomar / llevar", ex: "Take the bus." },
+  { en: "see", third: "sees", past: "saw", pp: "seen", es: "ver", ex: "I see a bird." },
+  { en: "come", third: "comes", past: "came", pp: "come", es: "venir", ex: "Come here." },
+  { en: "give", third: "gives", past: "gave", pp: "given", es: "dar", ex: "Give me a pen." },
+  { en: "find", third: "finds", past: "found", pp: "found", es: "encontrar", ex: "Find the key." },
+  { en: "tell", third: "tells", past: "told", pp: "told", es: "contar / decir", ex: "Tell me a story." },
+  { en: "become", third: "becomes", past: "became", pp: "become", es: "convertirse", ex: "He became a doctor." },
+  { en: "leave", third: "leaves", past: "left", pp: "left", es: "salir / dejar", ex: "Leave the room." },
+  { en: "feel", third: "feels", past: "felt", pp: "felt", es: "sentir", ex: "I feel good." },
+  { en: "put", third: "puts", past: "put", pp: "put", es: "poner", ex: "Put it here." },
+  { en: "bring", third: "brings", past: "brought", pp: "brought", es: "traer", ex: "Bring your book." },
+  { en: "begin", third: "begins", past: "began", pp: "begun", es: "comenzar", ex: "The movie begins now." },
+  { en: "keep", third: "keeps", past: "kept", pp: "kept", es: "mantener / guardar", ex: "Keep the change." },
+  { en: "hold", third: "holds", past: "held", pp: "held", es: "sostener", ex: "Hold my hand." },
+  { en: "write", third: "writes", past: "wrote", pp: "written", es: "escribir", ex: "Write a letter." },
+  { en: "read", third: "reads", past: "read", pp: "read", es: "leer", ex: "Read a book." },
+  { en: "speak", third: "speaks", past: "spoke", pp: "spoken", es: "hablar", ex: "Speak slowly." },
+  { en: "run", third: "runs", past: "ran", pp: "run", es: "correr", ex: "Run fast!" },
+  { en: "eat", third: "eats", past: "ate", pp: "eaten", es: "comer", ex: "Eat your vegetables." },
+  { en: "drink", third: "drinks", past: "drank", pp: "drunk", es: "beber", ex: "Drink water." },
+  { en: "sleep", third: "sleeps", past: "slept", pp: "slept", es: "dormir", ex: "I slept well." }
+];
+
+
+const auxiliaryVerbs = [
+  { en: "can", third: "can", past: "could", pp: "—", es: "poder (habilidad)", ex: "I can swim." },
+  { en: "could", third: "could", past: "could", pp: "—", es: "podría / podía", ex: "Could you help me?" },
+  { en: "will", third: "will", past: "would", pp: "—", es: "futuro / voluntad", ex: "I will call you." },
+  { en: "would", third: "would", past: "would", pp: "—", es: "condicional", ex: "I would travel." },
+  { en: "should", third: "should", past: "should", pp: "—", es: "debería", ex: "You should rest." },
+  { en: "may", third: "may", past: "might", pp: "—", es: "poder (permiso)", ex: "May I come in?" },
+  { en: "might", third: "might", past: "might", pp: "—", es: "podría (posibilidad)", ex: "It might rain." },
+  { en: "must", third: "must", past: "had to", pp: "—", es: "deber (obligación)", ex: "You must study." },
+  { en: "shall", third: "shall", past: "should", pp: "—", es: "deber (formal)", ex: "Shall we go?" },
+  { en: "ought to", third: "ought to", past: "ought to", pp: "—", es: "debería", ex: "You ought to try." },
+  { en: "need", third: "needs", past: "needed", pp: "needed", es: "necesitar (modal)", ex: "You needn't worry." },
+  { en: "dare", third: "dares", past: "dared", pp: "dared", es: "atreverse", ex: "I dare to ask." },
+  { en: "used to", third: "used to", past: "used to", pp: "—", es: "solía", ex: "I used to run." },
+  { en: "be able to", third: "is able to", past: "was able to", pp: "been able to", es: "ser capaz de", ex: "She was able to come." },
+  { en: "have to", third: "has to", past: "had to", pp: "had to", es: "tener que", ex: "I have to go." },
+  { en: "be going to", third: "is going to", past: "was going to", pp: "been going to", es: "ir a (futuro)", ex: "I am going to travel." },
+  { en: "had better", third: "had better", past: "had better", pp: "—", es: "más vale que", ex: "You had better hurry." },
+  { en: "would rather", third: "would rather", past: "would rather", pp: "—", es: "preferiría", ex: "I would rather stay." },
+  { en: "be supposed to", third: "is supposed to", past: "was supposed to", pp: "been supposed to", es: "se supone que", ex: "You are supposed to study." },
+  { en: "be used to", third: "is used to", past: "was used to", pp: "been used to", es: "estar acostumbrado a", ex: "I am used to waking early." }
+];
+
+
+// ===== RENDERIZADO =====
+// IMPORTANTE: se añade data-label a cada td para que en móvil
+// las tarjetas muestren el nombre del campo.
+function renderTable(data, tbodyId, type) {
+  const tbody = document.getElementById(tbodyId);
+  const label = type === 'regular' ? 'Regular' : type === 'irregular' ? 'Irregular' : 'Auxiliar';
+  tbody.innerHTML = data.map((v, i) => `
+    <tr>
+      <td class="speak-cell">
+        <button class="speak-btn" data-speak="${v.en}|${v.past}|${v.pp}" title="Escuchar base · pasado · participio">🔊</button>
+      </td>
+      <td class="verb-en"    data-label="Base">${v.en}</td>
+      <td class="verb-form"  data-label="3ª persona">${v.third}</td>
+      <td class="verb-form"  data-label="Pasado">${v.past}</td>
+      <td class="verb-form"  data-label="Participio">${v.pp}</td>
+      <td class="verb-es"    data-label="Español">${v.es}</td>
+      <td class="example"    data-label="Ejemplo">${v.ex}</td>
+      <td data-label="Tipo"><span class="tag ${type}">${label}</span></td>
+    </tr>
+  `).join('');
+}
+
+
+renderTable(regularVerbs, 'regular-body', 'regular');
+renderTable(irregularVerbs, 'irregular-body', 'irregular');
+renderTable(auxiliaryVerbs, 'auxiliary-body', 'auxiliary');
+
+
+// ===== BÚSQUEDA =====
+const searchInput = document.getElementById('search');
+const noResults = document.getElementById('no-results');
+const sections = document.querySelectorAll('.section');
+
+
+searchInput.addEventListener('input', (e) => {
+  const query = e.target.value.toLowerCase().trim();
+  let totalVisible = 0;
+
+
+  sections.forEach(section => {
+    const rows = section.querySelectorAll('tbody tr');
+    let visibleInSection = 0;
+    rows.forEach(row => {
+      const text = row.textContent.toLowerCase();
+      const match = text.includes(query);
+      row.style.display = match ? '' : 'none';
+      if (match) visibleInSection++;
+    });
+    section.style.display = visibleInSection > 0 ? '' : 'none';
+    totalVisible += visibleInSection;
+  });
+
+
+  noResults.style.display = totalVisible === 0 ? 'block' : 'none';
+});
+
+
+// ===== FILTROS =====
+const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    sections.forEach(section => {
+      section.style.display = (filter === 'all' || section.dataset.type === filter) ? '' : 'none';
+    });
+    noResults.style.display = 'none';
+    searchInput.value = '';
+    document.querySelectorAll('tbody tr').forEach(r => r.style.display = '');
+  });
+});
+
+
+// ===== VOZ =====
+const voiceSelect = document.getElementById('voiceSelect');
+const rateRange = document.getElementById('rateRange');
+const rateValue = document.getElementById('rateValue');
+const stopBtn = document.getElementById('stopBtn');
+
+
+let englishVoices = [];
+
+
+function loadVoices() {
+  const voices = speechSynthesis.getVoices();
+  englishVoices = voices.filter(v => v.lang.toLowerCase().startsWith('en'));
+
+
+  voiceSelect.innerHTML = '';
+  if (englishVoices.length === 0) {
+    const opt = document.createElement('option');
+    opt.textContent = 'No hay voces en inglés disponibles';
+    opt.disabled = true;
+    voiceSelect.appendChild(opt);
+    return;
+  }
+
+
+  englishVoices.forEach((voice, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    const flag = voice.lang.startsWith('en-US') ? '🇺🇸' :
+                 voice.lang.startsWith('en-GB') ? '🇬🇧' :
+                 voice.lang.startsWith('en-AU') ? '🇦🇺' : '🌐';
+    opt.textContent = `${flag} ${voice.name} (${voice.lang})`;
+    voiceSelect.appendChild(opt);
+  });
+
+
+  const preferredIndex = englishVoices.findIndex(v => v.lang === 'en-US');
+  if (preferredIndex >= 0) voiceSelect.value = preferredIndex;
+}
+
+
+loadVoices();
+if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
+
+
+rateRange.addEventListener('input', () => {
+  rateValue.textContent = `${rateRange.value}x`;
+});
+
+
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.speak-btn');
+  if (!btn) return;
+
+
+  if (!('speechSynthesis' in window)) {
+    alert('Tu navegador no soporta síntesis de voz.');
+    return;
+  }
+
+
+  const parts = btn.dataset.speak.split('|').filter(p => p && p !== '—');
+  speechSynthesis.cancel();
+  document.querySelectorAll('.speak-btn.speaking').forEach(b => b.classList.remove('speaking'));
+  btn.classList.add('speaking');
+
+
+  let i = 0;
+  const speakNext = () => {
+    if (i >= parts.length) {
+      btn.classList.remove('speaking');
+      return;
+    }
+    const utter = new SpeechSynthesisUtterance(parts[i]);
+    const voice = englishVoices[voiceSelect.value];
+    if (voice) utter.voice = voice;
+    utter.lang = voice ? voice.lang : 'en-US';
+    utter.rate = parseFloat(rateRange.value);
+    utter.onend = () => { i++; setTimeout(speakNext, 300); };
+    utter.onerror = () => btn.classList.remove('speaking');
+    speechSynthesis.speak(utter);
+  };
+  speakNext();
+});
+
+
+stopBtn.addEventListener('click', () => {
+  speechSynthesis.cancel();
+  document.querySelectorAll('.speak-btn.speaking').forEach(b => b.classList.remove('speaking'));
+});
+
+
+// ===== VOLVER ARRIBA =====
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => {
+  backTop.classList.toggle('visible', window.scrollY > 400);
+});
+backTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+
+</body>
+</html>
